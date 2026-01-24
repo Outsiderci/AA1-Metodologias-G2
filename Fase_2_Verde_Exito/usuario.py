@@ -18,8 +18,15 @@ class Usuario:
         if len(clave) < 8:
             return "Error: Contraseña insegura"
 
-        cls.base_de_datos.append({"nombre": nombre, "email": email})
+        cls.base_de_datos.append({"nombre": nombre, "email": email, "clave": clave})
         return "Usuario registrado exitosamente"
+
+    @classmethod
+    def iniciar_sesion(cls, email, clave):
+        for user in cls.base_de_datos:
+            if user['email'] == email and user['clave'] == clave:
+                return f"Bienvenido, {user['nombre']}"
+        return "Error: Credenciales incorrectas"
 
     @classmethod
     def resetear_base_de_datos(cls):

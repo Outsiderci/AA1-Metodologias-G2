@@ -23,5 +23,10 @@ class TestGestionUsuarios(unittest.TestCase):
         resultado = Usuario.registrar("Otro", "unico@espe.edu.ec", "ClaveFuerte1")
         self.assertEqual(resultado, "Error: Usuario ya registrado")
 
+    def test_5_login_exitoso(self):
+        Usuario.registrar("Kevin", "login@espe.edu.ec", "PasswordSegura")
+        resultado = Usuario.iniciar_sesion("login@espe.edu.ec", "PasswordSegura")
+        self.assertEqual(resultado, "Bienvenido, Kevin")
+
 if __name__ == '__main__':
     unittest.main()
