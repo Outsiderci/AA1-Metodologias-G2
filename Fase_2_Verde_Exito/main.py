@@ -16,7 +16,6 @@ def main():
             email = input("Ingrese email: ")
             clave = input("Ingrese contraseña: ")
             
-            # Llamamos a la lógica que ya creaste
             resultado = Usuario.registrar(nombre, email, clave)
             print(f">> RESULTADO: {resultado}")
             
